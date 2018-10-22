@@ -1,0 +1,115 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* General */
+body {
+    width: 100%;
+    height: 100%;
+}
+.main-container {
+    width: 60%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* END General */
+/* Results */
+.results {
+    padding: 2rem;
+    margin-top: 1rem;
+    height: 3rem;
+    min-width: 100%;
+    border: 1px solid black;
+}
+/* END Results */
+/* Bomb */
+.deadline {
+      width: 50%;
+  min-height: 10rem;
+}
+.bomb-area {
+    margin: 0 auto;
+    width: 100%;
+}
+.counting-line {
+  position: absolute;
+  width: 2rem;
+  height: 0.5rem;
+  background-color: #fff;
+  margin: 0 auto;
+  z-index: 100;
+  border-radius: 60%;
+}
+.bomb-element-fuse {
+  position: relative;
+  width: 0.5rem;
+  height: 10em;
+  background-color: red;
+  border-radius: 70%;
+margin: 0 auto;
+} 
+.bomb-element {
+    position: relative;
+  margin: 0 auto;
+  width: 1rem;
+  height: 1.5rem;
+  background-color: #000;
+}
+.bomb {
+    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  background-color: #000;
+    background: radial-gradient(circle at 100px 100px, #3d3a3a, #000);
+  border-radius: 50%;
+}
+#counting-number {
+  color: red;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;;
+  font-weight: 700;
+}
+/* Game area */
+.game-area {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 2rem;
+    border: 1px solid black;
+}
+/* Field */
+.field {
+    width: 50%;
+    height: auto;
+    border-left: 1px solid;
+}
