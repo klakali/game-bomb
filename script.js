@@ -4,7 +4,6 @@ function countingFunction() {
   var date = new Date();
   var seconds = date.getSeconds();
   
-  console.log(seconds);
   number.innerHTML = start - seconds;
 }
 
