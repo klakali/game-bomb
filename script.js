@@ -16,6 +16,7 @@ var tickTok = document.getElementById("tickTock-sound");
 
 // Button Start Game
 button.addEventListener("click", function (event) {
+    tickTok.play();
     counter = 10;
     resetGame();
     countingDown();
@@ -30,6 +31,7 @@ button.addEventListener("click", function (event) {
 
 // Reset the game (default values)
 function resetGame() {
+    tickTok.play();
     boomText.style.display = 'none';
     bomb.style.display = 'block';
     bomb.style.WebkitAnimation = 'none';
