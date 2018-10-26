@@ -13,7 +13,9 @@
     <div class="main-container">
         <section id="results">
             <div class="results-table">
-                <button class="start" id="button">Start</button>
+                <input type=button class="start" id="button" value="Start">
+                <audio id="catched-sound" src="sounds/catched.mp3"></audio>
+                <audio id="missed-sound" src="sounds/missed.mp3"></audio>
                 <div class="start" id="score">Score: 0</div>
                 <div class="start" id="target">The target: <span class="start-desc">10</span></div>
             </div>
@@ -29,11 +31,14 @@
                     <div id="counting-line"></div>
                     <div class="bomb-element-fuse"></div>
                     <div class="bomb-element"></div>
+                    <audio id="bomb-sound" src="sounds/bomb.wav"></audio>
+                    <audio id="tickTock-sound" src="sounds/knock.wav"></audio>
                     <div class="bomb">
                         <p id="counting-number">10</p>
                     </div>
                 </div>
-                <div id="boom-item">
+                <div id="boom">
+                    <p id="boom-item">Boom!!!</p>
                 </div>
             </div>
 

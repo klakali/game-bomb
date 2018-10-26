@@ -227,6 +227,9 @@ body {
     font-weight: 700;
 }
 
+#boom {
+    display: none;
+}
 /* Boom text */
 #boom-item {
     font-family: 'Permanent Marker', cursive;
