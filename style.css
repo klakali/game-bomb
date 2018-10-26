@@ -3,57 +3,161 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
 /* General */
 body {
     width: 100%;
     height: 100%;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
 }
+
 .main-container {
-    width: 60%;
+    max-width: 60rem;
     margin: 0 auto;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid black;
 }
+
 /* END General */
 /* Results */
 #results {
-    margin-top: 1rem;
-    height: 3rem;
-    min-width: 100%;
-    border: 1px solid black;
+    padding: 2rem;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.results-table {
+    display: flex;
+    flex-wrap: wrap;
+}
+.results-desc {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.start {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: black;
+    font-size: 1.3rem;
+    color: red;
+    text-shadow: 0 1px 0 black;
+    letter-spacing: 1.7px;
+    border: 1.5px solid #595959;
+}
+.start-desc{
+    color: red;
+}
+.score {
+    width: 8rem;
+    margin-left: 1rem;
+    color: #fff;
 }
 /* END Results */
 /* Bomb */
 .deadline {
     width: 50%;
-    min-height: 25rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 2px solid black;
 }
+
 .bomb-area {
     position: relative;
     animation-iteration-count: infinite;
@@ -62,103 +166,112 @@ body {
     width: 100%;
     background-clip: black;
 }
-.counting-line {
-  position: absolute;
+
+#counting-line {
+    position: absolute;
     right: 46%;
-  width: 2rem;
-  height: 0.5rem;
-  background-color: blue;
-  z-index: 100;
-  border-radius: 50%;
+    width: 2rem;
+    height: 0.5rem;
+    background-color: #fff;
+    z-index: 100;
+    border-radius: 50%;
 }
+
 .bomb-element-fuse {
-  position: relative;
-  width: 0.5rem;
-  min-height: 10em;
-  background-color: red;
-  border-radius: 70%;
-margin: 0 auto;
-} 
+    position: relative;
+    width: 0.5rem;
+    min-height: 7em;
+    background-color: red;
+    border-radius: 70%;
+    margin: 0 auto;
+}
+
 .bomb-element {
     position: relative;
-  margin: 0 auto;
-  width: 1rem;
-  height: 1.5rem;
-  background-color: #000;
+    margin: 0 auto;
+    width: 1rem;
+    height: 1.5rem;
+    background-color: #000;
 }
+
 .bomb {
     margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 10rem;
-  min-height: 10rem;
-  background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 8rem;
+    min-height: 8rem;
+    background-color: #000;
     background: radial-gradient(circle at 100px 100px, #3d3a3a, #000);
-  border-radius: 50%;
+    border-radius: 50%;
 }
+
 #counting-number {
-  color: red;
-  text-align: center;
-  font-size: 1.5rem;
-  letter-spacing: 0.1rem;;
-  font-weight: 700;
+    color: red;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
 }
+
 /* Boom text */
 #boom {
     display: none;
     transition: opacity 2s ease;
 }
+
 .boom-item {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 5rem;
-  transform: rotate(-15deg);
-  transform-origin: 0%;
-  text-shadow: 0 0 0.2em red, 0 0 0.2em #F87;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
+    transform: rotate(-15deg);
+    transform-origin: 0%;
+    text-shadow: 0 0 0.2em red, 0 0 0.2em #F87;
 }
+
 /* Bomb animation */
 @keyframes bomb-shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-2px, -2px) rotate(-2deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  70% { transform: translate(3px, 1px) rotate(-3deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  100% { transform: translate(1px, -4px) rotate(-4deg); }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
 }
-@keyframes bomb-raise {
-    0% { transform: translate(1px, 1px) rotate(0deg) scale(1); }
-  10% { transform: translate(-2px, -2px) rotate(-2deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  50% { transform: translate(-1px, 2px) rotate(-5deg) scale(1.15); }
-  70% { transform: translate(3px, 1px) rotate(-3deg); }
-  100% { transform: translate(1px, -4px) rotate(-4deg) scale(1); }
-}
+
 /*END Bomb animation */
 /* Game area */
 .game-area {
     width: 100%;
-    height: auto;
+    min-height: 25rem;
     display: flex;
-    border: 1px solid black;
 }
+
 /* Field */
 #field {
     position: relative;
+    min-height: 25rem;
     width: 50%;
-    height: auto;
-    border-left: 1px solid;
-    background: blue;
+    height: 100%;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
 }
 
 /* case */
 .case {
+    background-image: url("img/case.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-color: red;
+    width: 4rem;
+    height: 4rem;
     z-index: 100;
 }

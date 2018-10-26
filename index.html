@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>title</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <script defer src="script.js" type="text/javascript"></script>    
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Permanent+Marker" rel="stylesheet">
+
+</head>
+
+<body>
     <div class="main-container">
         <section id="results">
-            <button class="start" id="button">Start</button>
+            <div class="results-table">
+                <button class="start" id="button">Start</button>
+                <div class="start score">Score:</div>
+            </div>
+            <div class="results-desc">
+                <p id="results-start-desc">Click the <span class="start-desc">'Start'</span> button to start the game.</p>
+                <p>Your boss gave you a special task and a very tight deadline. (...)</p>
+            </div>
         </section>
-        
+
         <section class="game-area">
             <div class="deadline">
-            <div class="bomb-area" id="bomb">
-              <div class="counting-line"></div>
-              <div class="bomb-element-fuse"></div>
-              <div class="bomb-element"></div>
-              <div class="bomb">
-                <p id="counting-number">10</p>
-                </div> 
-            </div> 
+                <div class="bomb-area" id="bomb">
+                    <div id="counting-line"></div>
+                    <div class="bomb-element-fuse"></div>
+                    <div class="bomb-element"></div>
+                    <div class="bomb">
+                        <p id="counting-number">10</p>
+                    </div>
+                </div>
                 <div id="boom">
                     <p class="boom-item">Boom!!!</p>
-                </div>   
+                </div>
             </div>
 
-            <div id="field"></div>
+            <div id="field">
+            </div>
         </section>
-    </div> 
-  </body>
+    </div>
+</body>
+<script defer src="script.js" type="text/javascript"></script>
 
 </html>
