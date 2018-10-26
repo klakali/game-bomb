@@ -120,34 +120,46 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
 }
+
 .results-table {
     display: flex;
     flex-wrap: wrap;
 }
+
 .results-desc {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
 }
+#button {
+    color: red;
+}
 .start {
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     background-color: black;
     font-size: 1.3rem;
-    color: red;
+    color: #fff;
     text-shadow: 0 1px 0 black;
     letter-spacing: 1.7px;
     border: 1.5px solid #595959;
 }
-.start-desc{
+
+.start-desc {
     color: red;
 }
-.score {
-    width: 8rem;
-    margin-left: 1rem;
-    color: #fff;
+
+#results-start-desc {
+    padding-top: 0.5rem;
 }
+
+#score {
+    min-width: 6rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
 /* END Results */
 /* Bomb */
 .deadline {
@@ -216,21 +228,18 @@ body {
 }
 
 /* Boom text */
-#boom {
-    display: none;
-    transition: opacity 2s ease;
-}
-
-.boom-item {
+#boom-item {
     font-family: 'Permanent Marker', cursive;
     font-size: 4rem;
     transform: rotate(-15deg);
     transform-origin: 0%;
     text-shadow: 0 0 0.2em red, 0 0 0.2em #F87;
+    transition: opacity 2s ease;
 }
 
 /* Bomb animation */
 @keyframes bomb-shake {
+
     10%,
     30%,
     50%,
@@ -238,6 +247,7 @@ body {
     90% {
         transform: translateX(-10px);
     }
+
     20%,
     40%,
     60%,
