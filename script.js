@@ -25,9 +25,12 @@ button.addEventListener("click", function (event) {
     countingDown();
     caseGenerator();
     button.disabled = true;
+    level.disabled = true;
     button.style.color = "Grey";
+    level.style.color = "Grey";
     setTimeout(function () {
         button.disabled = false;
+        level.disabled = false;
     }, 10000); //to prevent from restarting during the play
 
 });
@@ -43,6 +46,20 @@ function resetGame() {
     score.innerHTML = "Score: " + scoreResults;
     targetDisplay.innerHTML = "The target: <span class='results__button--red'>10</span>";
 }
+
+//Level button 
+level.addEventListener("click", function (event) {
+    if (this.value === "1") {
+        target = 13;
+        targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
+    } else if (level.value === "2") {
+        target = 11;
+        targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
+    } else if (level.value === "3") {
+        target = 10;
+        targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
+    }
+});
 
 // Bomb 
 function countingDown() {
@@ -64,6 +81,7 @@ function countingDown() {
             startDescription.innerHTML = 'Click the <span class="results__button--red">"Try again"</span> button to start the game';
             targetDisplay.innerHTML = 'You are <span class="results__button--red">FIRED</span>!!!';
             button.style.color = "Red";
+            level.style.color = "White";
             button.innerHTML = 'Try again';
             clearInterval(deadlineCountdown);
         }
@@ -74,6 +92,7 @@ function countingDown() {
             startDescription.innerHTML = 'Click the <span class="results__button--red">"Try again"</span> button to start the game';
             targetDisplay.innerHTML = 'You are not fired <span class="results__button--red">THIS</span> time.';
             button.style.color = "Red";
+            level.style.color = "White";
             button.innerHTML = 'Try again';
             clearInterval(deadlineCountdown);
         }
@@ -111,20 +130,14 @@ function caseGenerator() {
     function showCase() {
         if (level.value === "1") {
             counterCase = counter * 1.2;
-            target = 13;
-            targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
             changePosition();
             time = setInterval(changePosition, 1000);
         } else if (level.value === "2") {
             counterCase = counter * 1.5;
-            target = 10;
-            targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
             changePosition();
             time = setInterval(changePosition, 800);
         } else if (level.value === "3") {
             counterCase = counter * 2.3;
-            target = 10;
-            targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
             changePosition();
             time = setInterval(changePosition, 500);
         }
