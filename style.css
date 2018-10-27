@@ -105,6 +105,7 @@ video {
 
     #field {
         border-right: 2px solid black;
+        border-left: 2px solid black;
     }
 
     #results {
@@ -112,7 +113,7 @@ video {
         align-items: center;
     }
 
-    .results-desc {
+    .result__desc {
         justify-content: center;
         align-items: center;
     }
@@ -138,8 +139,10 @@ body {
 }
 
 /* END General */
+
+
 /* Results */
-#results {
+.results {
     padding: 2rem;
     width: 80%;
     display: flex;
@@ -147,23 +150,20 @@ body {
     flex-direction: column;
 }
 
-.results-table {
+.results__table {
     display: flex;
     flex-wrap: wrap;
 }
 
-.results-desc {
+.result__desc {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-#button {
+.results__button {
     color: red;
-}
-
-.start {
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     background-color: black;
@@ -174,42 +174,61 @@ body {
     border: 1.5px solid #595959;
 }
 
-.start-desc {
+.results__button--red {
     color: red;
 }
 
-#results-start-desc {
-    padding-top: 0.5rem;
-}
-
-#score {
+.results__score {
+    color: #fff;
     min-width: 6rem;
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
-/* END Results */
-/* Bomb */
-.deadline {
+.results__button--level {
+    width: 2.2rem;
+}
+
+.results__desc--start {
+    padding-top: 0.5rem;
+}
+
+/* Game Area */
+.gameArea__container {
+    width: 100%;
+    min-height: 25rem;
+    display: flex;
+}
+
+/* Field */
+.gameArea__field {
+    position: relative;
+    min-height: 20rem;
     width: 50%;
+    height: 100%;
+    border-top: 2px solid black;
+}
+
+/* Bomb */
+.gameArea__deadline {
+    width: 50%;
+    min-height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 2px solid black;
+    border-right: 2px solid black;
 }
 
-.bomb-area {
+.deadline__bombItem {
     position: relative;
-    animation-iteration-count: infinite;
-    display: block;
     margin: 0 auto;
     width: 100%;
-    background-clip: black;
 }
 
-#counting-line {
+.deadline__CountingLine {
     position: absolute;
-    right: 46%;
+    right: 47%;
     width: 2rem;
     height: 0.5rem;
     background-color: #fff;
@@ -217,7 +236,7 @@ body {
     border-radius: 50%;
 }
 
-.bomb-element-fuse {
+.deadline__bombFuse {
     position: relative;
     width: 0.5rem;
     min-height: 7em;
@@ -226,7 +245,7 @@ body {
     margin: 0 auto;
 }
 
-.bomb-element {
+.deadline__bombElement {
     position: relative;
     margin: 0 auto;
     width: 1rem;
@@ -234,7 +253,7 @@ body {
     background-color: #000;
 }
 
-.bomb {
+.deadline__bombInside {
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -247,7 +266,7 @@ body {
     border-radius: 50%;
 }
 
-#counting-number {
+.bombInside__countingNumber {
     color: red;
     text-align: center;
     font-size: 1.5rem;
@@ -255,12 +274,12 @@ body {
     font-weight: 700;
 }
 
-#boom {
+/* Boom text */
+.gameArea__boomTextContainer {
     display: none;
 }
 
-/* Boom text */
-#boom-item {
+.boomTextContainer__text {
     font-family: 'Permanent Marker', cursive;
     font-size: 4rem;
     transform: rotate(-15deg);
@@ -286,24 +305,6 @@ body {
     80% {
         transform: translateX(10px);
     }
-}
-
-/*END Bomb animation */
-/* Game area */
-.game-area {
-    width: 100%;
-    min-height: 25rem;
-    display: flex;
-}
-
-/* Field */
-#field {
-    position: relative;
-    min-height: 25rem;
-    width: 50%;
-    height: 100%;
-    border-left: 2px solid black;
-    border-top: 2px solid black;
 }
 
 /* case */

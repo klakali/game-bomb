@@ -3,46 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>JavaScript Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Heebo|Permanent+Marker" rel="stylesheet">
-
 </head>
 
 <body>
     <div class="main-container">
-        <section id="results">
-            <div class="results-table">
-                <input type=button class="start" id="button" value="Start">
-                <audio id="catched-sound" src="sounds/catched.mp3"></audio>
-                <audio id="missed-sound" src="sounds/missed.mp3"></audio>
-                <div class="start" id="score">Score: 0</div>
-                <div class="start" id="target">The target: <span class="start-desc">10</span></div>
+        <section class="results">
+            <div class="results__table">
+                <input type=button class="results__button results__button--start results__button--red" value="Start">
+                <label class="results__button" for="level">Level:</label>
+                <input class="results__button results__button--level" type="number" name="quantity" min="1" max="3" value="1" data-sizing="px">
+                <audio class="results__catchedSound" src="sounds/catched.mp3"></audio>
+                <audio class="results__missedSound" src="sounds/missed.mp3"></audio>
+                <div class="results__button results__score">Score: 0</div>
+                <p class="results__button results__target">The target: <span class="results__button--red">13</span></p>
             </div>
-            <div class="results-desc">
+            <div class="result__desc">
                 <p>Your boss gave you a special task and a very tight deadline. Complete (by clicking) as many cases as you can before the bomb explodes.</p>
-                <p id="results-start-desc">Click the <span class="start-desc">'Start'</span> button to start the game.</p>
+                <p class="results__desc--start">Click the <span class="results__button--red">'Start'</span> button to start the game.</p>
             </div>
         </section>
-
-        <section class="game-area">
-            <div class="deadline">
-                <div class="bomb-area" id="bomb">
-                    <div id="counting-line"></div>
-                    <div class="bomb-element-fuse"></div>
-                    <div class="bomb-element"></div>
-                    <audio id="bomb-sound" src="sounds/bomb.wav"></audio>
-                    <audio id="tickTock-sound" src="sounds/knock.wav"></audio>
-                    <div class="bomb">
-                        <p id="counting-number">10</p>
+        <section class="gameArea__container">
+            <div class="gameArea__deadline">
+                <div class="deadline__bombItem">
+                    <div class="deadline__CountingLine"></div>
+                    <div class="deadline__bombFuse"></div>
+                    <div class="deadline__bombElement"></div>
+                    <audio class="deadline__bombSound" src="sounds/bomb.wav"></audio>
+                    <audio class="deadline__tickTockSsound" src="sounds/knock.wav"></audio>
+                    <div class="deadline__bombInside">
+                        <p class="bombInside__countingNumber">10</p>
                     </div>
                 </div>
-                <div id="boom">
-                    <p id="boom-item">Boom!!!</p>
+                <div class="gameArea__boomTextContainer">
+                    <p class="boomTextContainer__text">Boom!!!</p>
                 </div>
             </div>
-
-            <div id="field">
+            <div class="gameArea__field">
             </div>
         </section>
     </div>

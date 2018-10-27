@@ -1,20 +1,23 @@
 //Main variables
-var button = document.getElementById("button");
-var number = document.getElementById("counting-number");
-var boomText = document.getElementById('boom');
-var bomb = document.getElementById('bomb');
-var fieldArea = document.getElementById("field");
-var startDescription = document.getElementById("results-start-desc");
+var button = document.querySelector(".results__button--start");
+var number = document.querySelector(".bombInside__countingNumber");
+var boomText = document.querySelector(".gameArea__boomTextContainer");
+var bomb = document.querySelector(".deadline__bombItem");
+var countingLine = document.querySelector(".deadline__CountingLine");
+var fieldArea = document.querySelector(".gameArea__field");
+var startDescription = document.querySelector(".results__desc--start");
+var score = document.querySelector(".results__score");
+var targetDisplay = document.querySelector(".results__target");
+var missedSound = document.querySelector(".results__missedSound");
+var catchedSound = document.querySelector(".results__catchedSound");
+var bombSound = document.querySelector(".deadline__bombSound");
+var tickTok = document.querySelector(".deadline__tickTockSsound");
+var level = document.querySelector(".results__button--level")
 var counter = 10;
-var score = document.getElementById("score");
 var scoreResults = 0;
-var target = document.getElementById("target");
-var missedSound = document.getElementById("missed-sound");
-var catchedSound = document.getElementById("catched-sound");
-var bombSound = document.getElementById("bomb-sound");
-var tickTok = document.getElementById("tickTock-sound");
+var target = 0;
 
-// Button Start Game
+// Button Start Game (Main event)
 button.addEventListener("click", function (event) {
     tickTok.play();
     counter = 10;
@@ -35,9 +38,10 @@ function resetGame() {
     boomText.style.display = 'none';
     bomb.style.display = 'block';
     bomb.style.WebkitAnimation = 'none';
-    document.getElementById("counting-line").style.height = "0.5rem";
+    countingLine.style.height = "0.5rem";
     scoreResults = 0;
     score.innerHTML = "Score: " + scoreResults;
+    targetDisplay.innerHTML = "The target: <span class='results__button--red'>10</span>";
 }
 
 // Bomb 
@@ -47,43 +51,41 @@ function countingDown() {
         number.innerHTML = counter;
         counter--
         if (counter === 4) {
-            document.getElementById("counting-line").style.height = "2rem";
+            countingLine.style.height = "2rem";
         }
         if (counter < 3) {
             bomb.style.WebkitAnimation = "bomb-shake 0.5s 20";
-            document.getElementById("counting-line").style.height = "4rem";
+            countingLine.style.height = "4rem";
         }
-        if (counter < 0 && scoreResults >= 10) {
+        if (counter < 0 && scoreResults < target) {
             bombSound.play();
             bomb.style.display = 'none';
             boomText.style.display = 'block';
-            startDescription.innerHTML = 'Click the <span class="start-desc">"Try again"</span> button to start the game';
-            target.innerHTML = 'You are not fired <span class="start-desc">THIS</span> time.';
+            startDescription.innerHTML = 'Click the <span class="results__button--red">"Try again"</span> button to start the game';
+            targetDisplay.innerHTML = 'You are <span class="results__button--red">FIRED</span>!!!';
             button.style.color = "Red";
             button.innerHTML = 'Try again';
             clearInterval(deadlineCountdown);
         }
-        if (counter < 0 && scoreResults < 10) {
+        if (counter < 0 && scoreResults >= target) {
             bombSound.play();
             bomb.style.display = 'none';
-            boomText.style.display = 'inline';
-            startDescription.innerHTML = 'Click the <span class="start-desc">"Try again"</span> button to start the game';
-            target.innerHTML = 'You are <span class="start-desc">FIRED</span>!!!';
+            boomText.style.display = 'block';
+            startDescription.innerHTML = 'Click the <span class="results__button--red">"Try again"</span> button to start the game';
+            targetDisplay.innerHTML = 'You are not fired <span class="results__button--red">THIS</span> time.';
             button.style.color = "Red";
             button.innerHTML = 'Try again';
             clearInterval(deadlineCountdown);
-        } else {
-            boomText.style.display = 'none';
         }
     }, 1000);
 }
 
 //Case generator
 function caseGenerator() {
-    var counterCase = counter * 1.50;
+    var counterCase = counter * 1.2;
     let time = null;
     const caseElement = document.createElement("div");
-    var field = document.getElementById("field");
+    var field = document.querySelector(".gameArea__field");
 
     caseElement.classList.add("case");
 
@@ -107,8 +109,26 @@ function caseGenerator() {
     }
 
     function showCase() {
-        changePosition()
-        time = setInterval(changePosition, 800);
+        if (level.value === "1") {
+            counterCase = counter * 1.2;
+            target = 13;
+            targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
+            changePosition();
+            time = setInterval(changePosition, 1000);
+        } else if (level.value === "2") {
+            counterCase = counter * 1.5;
+            target = 10;
+            targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
+            changePosition();
+            time = setInterval(changePosition, 800);
+        } else if (level.value === "3") {
+            counterCase = counter * 2.3;
+            target = 10;
+            targetDisplay.innerHTML = 'The target: <span class="results__button--red">' + target + '</span>';
+            changePosition();
+            time = setInterval(changePosition, 500);
+        }
+
     }
 
     //Score 
