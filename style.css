@@ -93,29 +93,19 @@ video {
 }
 
 @media only screen and (max-width: 800px) {
-    .game-area {
+    .gameArea__container {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
 
-    .deadline {
+    .gameArea__deadline {
         border: 2px solid black;
     }
 
-    #field {
+    .gameArea__field {
         border-right: 2px solid black;
         border-left: 2px solid black;
-    }
-
-    #results {
-        justify-content: center;
-        align-items: center;
-    }
-
-    .result__desc {
-        justify-content: center;
-        align-items: center;
     }
 }
 
