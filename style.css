@@ -92,7 +92,7 @@ video {
     vertical-align: baseline;
 }
 
-@media only screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
     .gameArea__container {
         flex-direction: column-reverse;
         justify-content: center;
